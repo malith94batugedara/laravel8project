@@ -23,3 +23,9 @@ Route::get('/add-books',[BookController::class ,'create'])->name('book.create');
 Route::post('/store-books',[BookController::class ,'store'])->name('book.store');
 
 Route::get('/all-books',[BookController::class ,'index'])->name('book.index');
+
+Route::get('/edit-books/{book_id}',[BookController::class ,'edit'])->name('book.edit');
+
+Route::post('/update-books/{book_id}',[BookController::class ,'update'])->name('book.update');
+
+Route::get('/delete-books/{book_id}',[BookController::class ,'destroy'])->name('book.delete');

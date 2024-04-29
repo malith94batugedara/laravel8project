@@ -69,9 +69,10 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($book_id)
     {
-        //
+        $book = Book::find($book_id);
+        return view('books.edit',compact('book'));
     }
 
     /**
@@ -81,9 +82,20 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookFormRequest $request, $book_id)
     {
-        //
+        $data = $request->validated();
+
+        $book = Book::find($book_id);
+
+        $book->book_name = $data['bookname'];
+        $book->book_author = $data['bookauth'];
+        $book->book_type = $data['booktype'];
+        $book->book_price = $data['bookprice'];
+
+        $book->update();
+
+        return redirect(route('book.index'))->with('status','Book Updated Successfully!');
     }
 
     /**
@@ -92,8 +104,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($book_id)
     {
-        //
+        $book = Book::find($book_id);
+
+        $book->delete();
+
+        return redirect(route('book.index'))->with('status','Book Deleted Successfully!');
     }
 }
