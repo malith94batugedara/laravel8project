@@ -37,6 +37,7 @@
               <input type="text" name="bookprice" class="form-control" placeholder="Enter Book Price"/><br/>
 
               <input type="submit" class="btn btn-success" value="Save"/>
+              <button type="reset" class="btn btn-warning">Reset</button>
           </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
