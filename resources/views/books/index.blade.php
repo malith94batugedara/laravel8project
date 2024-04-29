@@ -37,8 +37,8 @@
                         <td>{{$book->book_type}}</td>
                         <td>{{$book->book_price}}</td>
                         <td>
-                            <a href="" class="btn btn-success">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('book.edit',$book->id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('book.delete',$book->id) }}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
 
